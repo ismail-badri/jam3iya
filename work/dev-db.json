@@ -1,0 +1,1127 @@
+{
+  "staffRoles": [
+    {
+      "id": "role_admin",
+      "name": "مدير النظام",
+      "description": "صلاحيات كاملة لإدارة الجمعية.",
+      "permissions": [
+        "*"
+      ],
+      "createdAt": "2026-06-17T22:01:05.751Z"
+    },
+    {
+      "id": "role_operations",
+      "name": "مصلحة الري",
+      "description": "إدارة العدادات والطلبات والجداول.",
+      "permissions": [
+        "farmers:read",
+        "fields:write",
+        "meters:read",
+        "meters:write",
+        "requests:read",
+        "requests:write",
+        "bills:read",
+        "notifications:write",
+        "reports:read"
+      ],
+      "createdAt": "2026-06-17T22:01:05.752Z"
+    },
+    {
+      "id": "role_finance",
+      "name": "مصلحة المالية",
+      "description": "إدارة الفواتير والدفع والتقارير.",
+      "permissions": [
+        "farmers:read",
+        "bills:read",
+        "bills:write",
+        "reports:read"
+      ],
+      "createdAt": "2026-06-17T22:01:05.752Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "usr_admin",
+      "email": "admin@irrigation.local",
+      "passwordHash": "pbkdf2$120000$93a399a07472c0a35f9babef8a60eb11$e536e94e9e2f8dad74692e0e5f9e7fa8497e18af1ba11fbb07d333c1cffa1b59",
+      "displayName": "مدير جمعية الري",
+      "phone": "+216 70 000 001",
+      "role": "admin",
+      "staffRoleId": "role_admin",
+      "active": true,
+      "createdAt": "2026-06-17T22:01:05.855Z",
+      "updatedAt": "2026-06-17T22:01:05.855Z"
+    },
+    {
+      "id": "usr_staff",
+      "email": "staff@irrigation.local",
+      "passwordHash": "pbkdf2$120000$30177819fc800ed8a94087ebeebdb172$c32f196956664a4a0d1919eb822e344163576939206d6a2f7c188124f05f5790",
+      "displayName": "عون مصلحة الري",
+      "phone": "+216 70 000 002",
+      "role": "staff",
+      "staffRoleId": "role_operations",
+      "active": true,
+      "createdAt": "2026-06-17T22:01:05.962Z",
+      "updatedAt": "2026-06-17T22:01:05.962Z"
+    },
+    {
+      "id": "usr_farmer_1",
+      "email": "farmer1@irrigation.local",
+      "passwordHash": "pbkdf2$120000$7de10cabe51b55bef30c4186ec174b8d$459a388a2c4a5946fc934482ffa4781b5827b3247776e2045a57a2cd79493e38",
+      "displayName": "محمد بن سالم",
+      "phone": "+216 20 111 222",
+      "role": "farmer",
+      "staffRoleId": null,
+      "active": true,
+      "createdAt": "2026-06-17T22:01:06.062Z",
+      "updatedAt": "2026-06-17T22:01:06.062Z"
+    },
+    {
+      "id": "usr_farmer_2",
+      "email": "farmer2@irrigation.local",
+      "passwordHash": "pbkdf2$120000$21aaefbf15a2d6dedfff8af91056564c$c5077fdcbdc587d08a8c872d13f33731c9ebe41c0530b04a31a9f5477a4079c5",
+      "displayName": "فاطمة الزواري",
+      "phone": "+216 20 333 444",
+      "role": "farmer",
+      "staffRoleId": null,
+      "active": true,
+      "createdAt": "2026-06-17T22:01:06.164Z",
+      "updatedAt": "2026-06-18T20:06:55.872Z"
+    }
+  ],
+  "farmers": [
+    {
+      "id": "far_1",
+      "userId": "usr_farmer_1",
+      "nationalId": "TN-11223344",
+      "associationNumber": "AGR-00001",
+      "region": "سيدي بوزيد",
+      "address": "طريق الرقاب كلم 8",
+      "status": "active",
+      "createdAt": "2026-06-17T22:01:06.164Z",
+      "updatedAt": "2026-06-17T22:01:06.164Z"
+    },
+    {
+      "id": "far_2",
+      "userId": "usr_farmer_2",
+      "nationalId": "TN-55667788",
+      "associationNumber": "AGR-00002",
+      "region": "القيروان",
+      "address": "الشراردة",
+      "status": "active",
+      "createdAt": "2026-06-17T22:01:06.164Z",
+      "updatedAt": "2026-06-18T20:06:55.872Z"
+    }
+  ],
+  "fields": [
+    {
+      "id": "fld_1",
+      "farmerId": "far_1",
+      "name": "قطعة الزيتون الشرقية",
+      "areaHectares": 4.5,
+      "cropType": "زياتين",
+      "location": "حوض 3",
+      "soilType": "طيني",
+      "createdAt": "2026-06-17T22:01:06.164Z",
+      "updatedAt": "2026-06-18T06:36:44.299Z"
+    },
+    {
+      "id": "fld_2",
+      "farmerId": "far_1",
+      "name": "قطعة الخضروات",
+      "areaHectares": 1.8,
+      "cropType": "خضروات",
+      "location": "حوض 4",
+      "soilType": "رملي",
+      "createdAt": "2026-06-17T22:01:06.164Z",
+      "updatedAt": "2026-06-17T22:01:06.164Z"
+    },
+    {
+      "id": "fld_3",
+      "farmerId": "far_2",
+      "name": "قطعة الحبوب",
+      "areaHectares": 6.2,
+      "cropType": "حبوب",
+      "location": "حوض 7",
+      "soilType": "متوسط",
+      "createdAt": "2026-06-17T22:01:06.164Z",
+      "updatedAt": "2026-06-17T22:01:06.164Z"
+    },
+    {
+      "id": "fld_3230f371-428c-49ff-9cfb-7a8edf7a54b0",
+      "farmerId": "far_1",
+      "name": "gvedfds",
+      "areaHectares": 985,
+      "cropType": "78888888888",
+      "location": "87",
+      "soilType": "",
+      "createdAt": "2026-06-18T06:53:37.251Z",
+      "updatedAt": "2026-06-18T06:53:37.251Z"
+    }
+  ],
+  "waterMeters": [
+    {
+      "id": "mtr_1",
+      "fieldId": "fld_1",
+      "meterNumber": "WM-2026-0101",
+      "installationDate": "2024-02-14",
+      "status": "active",
+      "createdAt": "2026-06-17T22:01:06.164Z",
+      "updatedAt": "2026-06-17T22:01:06.164Z"
+    },
+    {
+      "id": "mtr_2",
+      "fieldId": "fld_2",
+      "meterNumber": "WM-2026-0102",
+      "installationDate": "2024-02-14",
+      "status": "active",
+      "createdAt": "2026-06-17T22:01:06.164Z",
+      "updatedAt": "2026-06-17T22:01:06.164Z"
+    },
+    {
+      "id": "mtr_3",
+      "fieldId": "fld_3",
+      "meterNumber": "WM-2026-0103",
+      "installationDate": "2024-03-01",
+      "status": "active",
+      "createdAt": "2026-06-17T22:01:06.164Z",
+      "updatedAt": "2026-06-17T22:01:06.164Z"
+    },
+    {
+      "id": "mtr_c81ecd05-ab2f-4b57-9147-8730f644e504",
+      "fieldId": "fld_3230f371-428c-49ff-9cfb-7a8edf7a54b0",
+      "meterNumber": "56235362",
+      "installationDate": "2026-06-18",
+      "status": "active",
+      "createdAt": "2026-06-18T06:53:37.251Z",
+      "updatedAt": "2026-06-18T06:53:37.251Z"
+    }
+  ],
+  "meterReadings": [
+    {
+      "id": "red_1",
+      "meterId": "mtr_1",
+      "readingValue": 1200,
+      "consumption": 0,
+      "readingDate": "2026-05-11",
+      "recordedBy": "usr_staff",
+      "createdAt": "2026-05-11T23:00:00.000Z"
+    },
+    {
+      "id": "red_2",
+      "meterId": "mtr_1",
+      "readingValue": 1390,
+      "consumption": 190,
+      "readingDate": "2026-06-11",
+      "recordedBy": "usr_staff",
+      "createdAt": "2026-06-11T23:00:00.000Z"
+    },
+    {
+      "id": "red_3",
+      "meterId": "mtr_2",
+      "readingValue": 340,
+      "consumption": 0,
+      "readingDate": "2026-05-11",
+      "recordedBy": "usr_staff",
+      "createdAt": "2026-05-11T23:00:00.000Z"
+    },
+    {
+      "id": "red_4",
+      "meterId": "mtr_2",
+      "readingValue": 412,
+      "consumption": 72,
+      "readingDate": "2026-06-11",
+      "recordedBy": "usr_staff",
+      "createdAt": "2026-06-11T23:00:00.000Z"
+    },
+    {
+      "id": "red_5",
+      "meterId": "mtr_3",
+      "readingValue": 800,
+      "consumption": 0,
+      "readingDate": "2026-05-11",
+      "recordedBy": "usr_staff",
+      "createdAt": "2026-05-11T23:00:00.000Z"
+    },
+    {
+      "id": "red_6",
+      "meterId": "mtr_3",
+      "readingValue": 1015,
+      "consumption": 215,
+      "readingDate": "2026-06-11",
+      "recordedBy": "usr_staff",
+      "createdAt": "2026-06-11T23:00:00.000Z"
+    },
+    {
+      "id": "red_184eea94-6d72-4a2b-9e91-cb6e492ddf43",
+      "meterId": "mtr_1",
+      "readingValue": 1450,
+      "consumption": 60,
+      "readingDate": "2026-06-17",
+      "recordedBy": "usr_admin",
+      "createdAt": "2026-06-17T22:01:50.693Z"
+    },
+    {
+      "id": "red_da1ee5c0-8e61-41ea-92d6-77b5f7381861",
+      "meterId": "mtr_1",
+      "readingValue": 98787984984,
+      "consumption": 98787983534,
+      "readingDate": "2026-06-18",
+      "recordedBy": "usr_admin",
+      "createdAt": "2026-06-18T06:37:34.281Z"
+    },
+    {
+      "id": "red_ac3c3fa5-0e98-486e-bc36-d066219acfc4",
+      "meterId": "mtr_c81ecd05-ab2f-4b57-9147-8730f644e504",
+      "readingValue": 0,
+      "consumption": 0,
+      "readingDate": "2026-06-18",
+      "recordedBy": null,
+      "createdAt": "2026-06-18T06:53:37.251Z"
+    },
+    {
+      "id": "red_93d8fbcc-0b47-4a84-b2f0-a6036eaa0776",
+      "meterId": "mtr_3",
+      "readingValue": 56565356962,
+      "consumption": 56565355947,
+      "readingDate": "2026-06-18",
+      "recordedBy": "usr_admin",
+      "createdAt": "2026-06-18T22:22:00.550Z"
+    },
+    {
+      "id": "red_dc4dfac2-9464-45f8-bd4f-a1f587730cd0",
+      "meterId": "mtr_c81ecd05-ab2f-4b57-9147-8730f644e504",
+      "readingValue": 1,
+      "consumption": 1,
+      "readingDate": "2026-06-18",
+      "recordedBy": "usr_admin",
+      "createdAt": "2026-06-18T22:22:19.159Z"
+    },
+    {
+      "id": "red_a664a330-36d1-437e-9c16-7b86dd3e2d87",
+      "meterId": "mtr_c81ecd05-ab2f-4b57-9147-8730f644e504",
+      "readingValue": 2,
+      "consumption": 2,
+      "readingDate": "2026-06-18",
+      "recordedBy": "usr_admin",
+      "createdAt": "2026-06-18T22:22:35.279Z"
+    }
+  ],
+  "irrigationRequests": [
+    {
+      "id": "req_1",
+      "farmerId": "far_1",
+      "fieldId": "fld_1",
+      "requestedDate": "2026-06-19",
+      "requestedHours": 5,
+      "waterAmount": 120,
+      "reason": "دورة ري للزياتين",
+      "status": "approved",
+      "scheduledAt": "2026-06-18T09:11:00.000Z",
+      "staffNote": "تم إدراج الطلب في جدول الأدوار.",
+      "decidedBy": "usr_admin",
+      "decidedAt": "2026-06-18T22:23:04.261Z",
+      "createdAt": "2026-06-17T22:01:06.165Z",
+      "updatedAt": "2026-06-18T22:23:04.262Z"
+    },
+    {
+      "id": "req_2",
+      "farmerId": "far_2",
+      "fieldId": "fld_3",
+      "requestedDate": "2026-06-18",
+      "requestedHours": 4,
+      "waterAmount": 90,
+      "reason": "تعويض نقص الأمطار",
+      "status": "approved",
+      "scheduledAt": "2026-06-18T05:00:00.000Z",
+      "staffNote": "تم إدراج الطلب في جدول الأدوار.",
+      "decidedBy": "usr_admin",
+      "decidedAt": "2026-06-18T22:23:04.678Z",
+      "createdAt": "2026-06-17T22:01:06.165Z",
+      "updatedAt": "2026-06-18T22:23:04.678Z"
+    }
+  ],
+  "bills": [
+    {
+      "id": "bil_64d9af63-2c4c-4c2d-89de-f4d5d3dea5aa",
+      "farmerId": "far_1",
+      "meterId": "mtr_c81ecd05-ab2f-4b57-9147-8730f644e504",
+      "readingId": "red_a664a330-36d1-437e-9c16-7b86dd3e2d87",
+      "billNumber": "BILL-2026-00008",
+      "periodStart": "2026-06-18",
+      "periodEnd": "2026-06-18",
+      "consumption": 2,
+      "rate": 1.2,
+      "amount": 2.4,
+      "status": "unpaid",
+      "dueDate": "2026-07-18",
+      "createdAt": "2026-06-18T22:22:35.279Z",
+      "updatedAt": "2026-06-18T22:22:35.279Z"
+    },
+    {
+      "id": "bil_bdaa7601-87af-40ac-a774-03e44c8b632d",
+      "farmerId": "far_1",
+      "meterId": "mtr_c81ecd05-ab2f-4b57-9147-8730f644e504",
+      "readingId": "red_dc4dfac2-9464-45f8-bd4f-a1f587730cd0",
+      "billNumber": "BILL-2026-00007",
+      "periodStart": "2026-06-18",
+      "periodEnd": "2026-06-18",
+      "consumption": 1,
+      "rate": 1.2,
+      "amount": 1.2,
+      "status": "unpaid",
+      "dueDate": "2026-07-18",
+      "createdAt": "2026-06-18T22:22:19.159Z",
+      "updatedAt": "2026-06-18T22:22:19.159Z"
+    },
+    {
+      "id": "bil_1b1d3898-d01f-46a8-8bd9-6c59c79ff6e4",
+      "farmerId": "far_2",
+      "meterId": "mtr_3",
+      "readingId": "red_93d8fbcc-0b47-4a84-b2f0-a6036eaa0776",
+      "billNumber": "BILL-2026-00006",
+      "periodStart": "2026-06-11",
+      "periodEnd": "2026-06-18",
+      "consumption": 56565355947,
+      "rate": 1.2,
+      "amount": 67878427136.4,
+      "status": "unpaid",
+      "dueDate": "2026-07-18",
+      "createdAt": "2026-06-18T22:22:00.550Z",
+      "updatedAt": "2026-06-18T22:22:00.550Z"
+    },
+    {
+      "id": "bil_43be58c6-8ec1-43bb-b3f2-87afd1cc17f7",
+      "farmerId": "far_1",
+      "meterId": "mtr_1",
+      "readingId": "red_da1ee5c0-8e61-41ea-92d6-77b5f7381861",
+      "billNumber": "BILL-2026-00005",
+      "periodStart": "2026-06-17",
+      "periodEnd": "2026-06-18",
+      "consumption": 98787983534,
+      "rate": 1.2,
+      "amount": 118545580240.8,
+      "status": "paid",
+      "dueDate": "2026-07-18",
+      "createdAt": "2026-06-18T06:37:34.281Z",
+      "updatedAt": "2026-06-18T06:43:33.830Z"
+    },
+    {
+      "id": "bil_a1959b88-e3ff-4a04-b0fd-3298648b2b42",
+      "farmerId": "far_1",
+      "meterId": "mtr_1",
+      "readingId": "red_184eea94-6d72-4a2b-9e91-cb6e492ddf43",
+      "billNumber": "BILL-2026-00004",
+      "periodStart": "2026-06-11",
+      "periodEnd": "2026-06-17",
+      "consumption": 60,
+      "rate": 1.2,
+      "amount": 72,
+      "status": "paid",
+      "dueDate": "2026-07-17",
+      "createdAt": "2026-06-17T22:01:50.693Z",
+      "updatedAt": "2026-06-18T06:44:43.908Z"
+    },
+    {
+      "id": "bil_1",
+      "farmerId": "far_1",
+      "meterId": "mtr_1",
+      "readingId": "red_2",
+      "billNumber": "BILL-2026-00001",
+      "periodStart": "2026-05-11",
+      "periodEnd": "2026-06-11",
+      "consumption": 190,
+      "rate": 1.2,
+      "amount": 228,
+      "status": "paid",
+      "dueDate": "2026-07-07",
+      "createdAt": "2026-06-17T22:01:06.165Z",
+      "updatedAt": "2026-06-18T06:44:48.470Z"
+    },
+    {
+      "id": "bil_2",
+      "farmerId": "far_1",
+      "meterId": "mtr_2",
+      "readingId": "red_4",
+      "billNumber": "BILL-2026-00002",
+      "periodStart": "2026-05-11",
+      "periodEnd": "2026-06-11",
+      "consumption": 72,
+      "rate": 1.2,
+      "amount": 86.4,
+      "status": "paid",
+      "dueDate": "2026-07-05",
+      "createdAt": "2026-06-17T22:01:06.165Z",
+      "updatedAt": "2026-06-17T22:01:06.165Z"
+    },
+    {
+      "id": "bil_3",
+      "farmerId": "far_2",
+      "meterId": "mtr_3",
+      "readingId": "red_6",
+      "billNumber": "BILL-2026-00003",
+      "periodStart": "2026-05-11",
+      "periodEnd": "2026-06-11",
+      "consumption": 215,
+      "rate": 1.2,
+      "amount": 258,
+      "status": "paid",
+      "dueDate": "2026-07-11",
+      "createdAt": "2026-06-17T22:01:06.165Z",
+      "updatedAt": "2026-06-18T06:44:50.118Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay_b2774b91-bc0f-460f-8c4f-c1b8d24f7529",
+      "billId": "bil_3",
+      "farmerId": "far_2",
+      "amount": 258,
+      "method": "cash",
+      "reference": "PAY-1781765090118",
+      "paidAt": "2026-06-18T06:44:50.118Z",
+      "recordedBy": "usr_admin"
+    },
+    {
+      "id": "pay_b07b987c-a4ac-4b25-b735-66fb8db2a927",
+      "billId": "bil_1",
+      "farmerId": "far_1",
+      "amount": 228,
+      "method": "cash",
+      "reference": "PAY-1781765088470",
+      "paidAt": "2026-06-18T06:44:48.470Z",
+      "recordedBy": "usr_admin"
+    },
+    {
+      "id": "pay_7e8d8abb-e82c-46fb-bff2-adb805aceeac",
+      "billId": "bil_a1959b88-e3ff-4a04-b0fd-3298648b2b42",
+      "farmerId": "far_1",
+      "amount": 72,
+      "method": "cash",
+      "reference": "PAY-1781765083908",
+      "paidAt": "2026-06-18T06:44:43.908Z",
+      "recordedBy": "usr_admin"
+    },
+    {
+      "id": "pay_82de45c5-af2c-4ffa-9917-4b92c577ba9c",
+      "billId": "bil_43be58c6-8ec1-43bb-b3f2-87afd1cc17f7",
+      "farmerId": "far_1",
+      "amount": 118545580240.8,
+      "method": "cash",
+      "reference": "PAY-1781765013830",
+      "paidAt": "2026-06-18T06:43:33.830Z",
+      "recordedBy": "usr_admin"
+    },
+    {
+      "id": "pay_1",
+      "billId": "bil_2",
+      "farmerId": "far_1",
+      "amount": 86.4,
+      "method": "cash",
+      "reference": "PAY-2026-0001",
+      "paidAt": "2026-06-17T22:01:06.165Z",
+      "recordedBy": "usr_staff"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "not_bbd6bf1e-824e-4c13-9331-55af9eaf658c",
+      "userId": "usr_farmer_2",
+      "title": "تمت الموافقة على طلب الري",
+      "message": "تمت الموافقة على طلبك. موعد الدور: 18‏/6‏/2026، 6:00:00 ص.",
+      "status": "unread",
+      "createdAt": "2026-06-18T22:23:04.678Z"
+    },
+    {
+      "id": "not_8fd0c005-8fe4-4cc9-a810-6d30abe038ee",
+      "userId": "usr_farmer_1",
+      "title": "تمت الموافقة على طلب الري",
+      "message": "تمت الموافقة على طلبك. موعد الدور: 18‏/6‏/2026، 10:11:00 ص.",
+      "status": "unread",
+      "createdAt": "2026-06-18T22:23:04.262Z"
+    },
+    {
+      "id": "not_d190baa3-0035-412f-beaa-e83a1f8c53e9",
+      "userId": "usr_farmer_2",
+      "title": "تم رفض طلب الري",
+      "message": "تم رفض طلبك. لم تتوفر حصة ماء في التاريخ المطلوب.",
+      "status": "unread",
+      "createdAt": "2026-06-18T22:23:02.188Z"
+    },
+    {
+      "id": "not_3238cb14-11a9-4582-8e99-e6000b83df35",
+      "userId": "usr_farmer_1",
+      "title": "تم رفض طلب الري",
+      "message": "تم رفض طلبك. لم تتوفر حصة ماء في التاريخ المطلوب.",
+      "status": "unread",
+      "createdAt": "2026-06-18T22:23:01.074Z"
+    },
+    {
+      "id": "not_16d9c192-5896-4239-bf7a-5091953f35db",
+      "userId": "usr_farmer_1",
+      "title": "تمت الموافقة على طلب الري",
+      "message": "تمت الموافقة على طلبك. موعد الدور: 18‏/6‏/2026، 10:11:00 ص.",
+      "status": "unread",
+      "createdAt": "2026-06-18T22:22:59.686Z"
+    },
+    {
+      "id": "not_05029080-11bc-4dd6-9804-e4ff1786d6a0",
+      "userId": "usr_farmer_1",
+      "title": "فاتورة جديدة",
+      "message": "تم إصدار فاتورة بقيمة 2.40 عن استهلاك 2.00 م3.",
+      "status": "unread",
+      "createdAt": "2026-06-18T22:22:35.279Z"
+    },
+    {
+      "id": "not_722c645a-3315-4861-81d6-ac4e6c15d609",
+      "userId": "usr_farmer_1",
+      "title": "فاتورة جديدة",
+      "message": "تم إصدار فاتورة بقيمة 1.20 عن استهلاك 1.00 م3.",
+      "status": "unread",
+      "createdAt": "2026-06-18T22:22:19.159Z"
+    },
+    {
+      "id": "not_ba66c98d-14f5-45a2-a3db-dc319e43ca28",
+      "userId": "usr_farmer_2",
+      "title": "فاتورة جديدة",
+      "message": "تم إصدار فاتورة بقيمة 67878427136.40 عن استهلاك 56565355947.00 م3.",
+      "status": "unread",
+      "createdAt": "2026-06-18T22:22:00.550Z"
+    },
+    {
+      "id": "not_5a5b6af3-fc8e-44db-a1c4-67915685a704",
+      "userId": "usr_farmer_2",
+      "title": "bbbbb",
+      "message": "arra7 taw",
+      "status": "unread",
+      "createdAt": "2026-06-18T06:45:28.807Z"
+    },
+    {
+      "id": "not_eb888327-7df4-4139-95ba-85c0a7b84aa2",
+      "userId": "usr_farmer_1",
+      "title": "bbbbb",
+      "message": "arra7 taw",
+      "status": "unread",
+      "createdAt": "2026-06-18T06:45:28.807Z"
+    },
+    {
+      "id": "not_87c5ba05-d74c-48b2-aa93-81ff9d1e392f",
+      "userId": "usr_farmer_2",
+      "title": "تم تسجيل الدفع",
+      "message": "تم تسجيل دفع فاتورة BILL-2026-00003.",
+      "status": "unread",
+      "createdAt": "2026-06-18T06:44:50.118Z"
+    },
+    {
+      "id": "not_770f98ee-4f2a-43ce-b5ec-535bb7aa636e",
+      "userId": "usr_farmer_1",
+      "title": "تم تسجيل الدفع",
+      "message": "تم تسجيل دفع فاتورة BILL-2026-00001.",
+      "status": "unread",
+      "createdAt": "2026-06-18T06:44:48.470Z"
+    },
+    {
+      "id": "not_0d3f894a-1445-4d54-852f-95de3db08106",
+      "userId": "usr_farmer_1",
+      "title": "تم تسجيل الدفع",
+      "message": "تم تسجيل دفع فاتورة BILL-2026-00004.",
+      "status": "unread",
+      "createdAt": "2026-06-18T06:44:43.908Z"
+    },
+    {
+      "id": "not_44546743-9992-4383-88ad-fd899622b7c5",
+      "userId": "usr_farmer_1",
+      "title": "تم تسجيل الدفع",
+      "message": "تم تسجيل دفع فاتورة BILL-2026-00005.",
+      "status": "unread",
+      "createdAt": "2026-06-18T06:43:33.830Z"
+    },
+    {
+      "id": "not_87921c86-9cc7-423f-9f57-2ae81e8a1ec3",
+      "userId": "usr_farmer_1",
+      "title": "فاتورة جديدة",
+      "message": "تم إصدار فاتورة بقيمة 118545580240.80 عن استهلاك 98787983534.00 م3.",
+      "status": "read",
+      "createdAt": "2026-06-18T06:37:34.281Z"
+    },
+    {
+      "id": "not_bd16036f-ee5c-4a9f-8df4-84ae0f341de6",
+      "userId": "usr_farmer_1",
+      "title": "تم رفض طلب الري",
+      "message": "تم رفض طلبك. لم تتوفر حصة ماء في التاريخ المطلوب.",
+      "status": "read",
+      "createdAt": "2026-06-18T06:11:54.893Z"
+    },
+    {
+      "id": "not_00977c85-b864-4c18-97d2-6935325decbc",
+      "userId": "usr_farmer_1",
+      "title": "تمت الموافقة على طلب الري",
+      "message": "تمت الموافقة على طلبك. موعد الدور: 18‏/6‏/2026، 10:11:00 ص.",
+      "status": "unread",
+      "createdAt": "2026-06-18T06:11:44.867Z"
+    },
+    {
+      "id": "not_a2afaa72-6b39-40d5-9dd1-d761caeb33bf",
+      "userId": "usr_farmer_1",
+      "title": "فاتورة جديدة",
+      "message": "تم إصدار فاتورة بقيمة 72.00 عن استهلاك 60.00 م3.",
+      "status": "unread",
+      "createdAt": "2026-06-17T22:01:50.693Z"
+    },
+    {
+      "id": "not_1",
+      "userId": "usr_farmer_1",
+      "title": "طلب ري قيد المعالجة",
+      "message": "تم استلام طلب الري وسيتم إعلامك بالقرار.",
+      "status": "unread",
+      "createdAt": "2026-06-17T22:01:06.165Z"
+    },
+    {
+      "id": "not_2",
+      "userId": "usr_farmer_2",
+      "title": "تمت الموافقة على طلب الري",
+      "message": "تم تحديد دور الري في الفترة الصباحية.",
+      "status": "unread",
+      "createdAt": "2026-06-17T22:01:06.165Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "aud_a4036b98-f175-44d1-8243-860770e6d901",
+      "actorId": "usr_admin",
+      "action": "update_status",
+      "entityType": "irrigation_request",
+      "entityId": "req_2",
+      "details": {
+        "status": "approved",
+        "staffNote": "تم إدراج الطلب في جدول الأدوار."
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T22:23:04.678Z"
+    },
+    {
+      "id": "aud_7d36f7ba-4fb4-49e2-a014-dfebeae497a8",
+      "actorId": "usr_admin",
+      "action": "update_status",
+      "entityType": "irrigation_request",
+      "entityId": "req_1",
+      "details": {
+        "status": "approved",
+        "staffNote": "تم إدراج الطلب في جدول الأدوار."
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T22:23:04.262Z"
+    },
+    {
+      "id": "aud_697cfdf9-e135-42f4-bc60-1922014ba02f",
+      "actorId": "usr_admin",
+      "action": "update_status",
+      "entityType": "irrigation_request",
+      "entityId": "req_2",
+      "details": {
+        "status": "rejected",
+        "staffNote": "لم تتوفر حصة ماء في التاريخ المطلوب."
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T22:23:02.188Z"
+    },
+    {
+      "id": "aud_0ec3c282-ec07-4d1c-acb1-ff8835f8dd33",
+      "actorId": "usr_admin",
+      "action": "update_status",
+      "entityType": "irrigation_request",
+      "entityId": "req_1",
+      "details": {
+        "status": "rejected",
+        "staffNote": "لم تتوفر حصة ماء في التاريخ المطلوب."
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T22:23:01.074Z"
+    },
+    {
+      "id": "aud_35d1980a-b0e7-42da-affd-3c5e04c85849",
+      "actorId": "usr_admin",
+      "action": "update_status",
+      "entityType": "irrigation_request",
+      "entityId": "req_1",
+      "details": {
+        "status": "approved",
+        "staffNote": "تم إدراج الطلب في جدول الأدوار."
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T22:22:59.686Z"
+    },
+    {
+      "id": "aud_86c1cede-4ea5-4491-b576-eb6ce3cdc2a0",
+      "actorId": "usr_admin",
+      "action": "create",
+      "entityType": "meter_reading",
+      "entityId": "red_a664a330-36d1-437e-9c16-7b86dd3e2d87",
+      "details": {
+        "meterId": "mtr_c81ecd05-ab2f-4b57-9147-8730f644e504",
+        "readingValue": "2",
+        "readingDate": "2026-06-18"
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T22:22:35.279Z"
+    },
+    {
+      "id": "aud_5ff1c553-84f1-44af-9012-6265849bc249",
+      "actorId": "usr_admin",
+      "action": "create",
+      "entityType": "meter_reading",
+      "entityId": "red_dc4dfac2-9464-45f8-bd4f-a1f587730cd0",
+      "details": {
+        "meterId": "mtr_c81ecd05-ab2f-4b57-9147-8730f644e504",
+        "readingValue": "1",
+        "readingDate": "2026-06-18"
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T22:22:19.160Z"
+    },
+    {
+      "id": "aud_38ede163-801c-44d5-8fdd-d53882acc22a",
+      "actorId": "usr_admin",
+      "action": "create",
+      "entityType": "meter_reading",
+      "entityId": "red_93d8fbcc-0b47-4a84-b2f0-a6036eaa0776",
+      "details": {
+        "meterId": "mtr_3",
+        "readingValue": "56565356962",
+        "readingDate": "2026-06-18"
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T22:22:00.551Z"
+    },
+    {
+      "id": "aud_9c03230c-ba24-44af-8c99-85b676bb2e40",
+      "actorId": "usr_admin",
+      "action": "update",
+      "entityType": "farmer",
+      "entityId": "far_2",
+      "details": {
+        "name": "فاطمة الزواري",
+        "phone": "+216 20 333 444",
+        "region": "القيروان"
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T20:06:55.873Z"
+    },
+    {
+      "id": "aud_877b21b8-a758-4637-9d18-02c43e335419",
+      "actorId": "usr_admin",
+      "action": "create",
+      "entityType": "field",
+      "entityId": "fld_3230f371-428c-49ff-9cfb-7a8edf7a54b0",
+      "details": {
+        "farmerId": "far_1",
+        "name": "gvedfds",
+        "areaHectares": "985",
+        "cropType": "78888888888",
+        "location": "87",
+        "soilType": "",
+        "meterNumber": "56235362",
+        "initialReading": "0"
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T06:53:37.251Z"
+    },
+    {
+      "id": "aud_5320e755-e050-4166-8684-c2e854db600d",
+      "actorId": "usr_admin",
+      "action": "send",
+      "entityType": "notification",
+      "entityId": null,
+      "details": {
+        "count": 2,
+        "title": "bbbbb"
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T06:45:28.807Z"
+    },
+    {
+      "id": "aud_f8c493e9-48fd-4bf1-9d46-9c8abf613ff2",
+      "actorId": "usr_admin",
+      "action": "pay",
+      "entityType": "bill",
+      "entityId": "bil_3",
+      "details": {
+        "method": "cash"
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T06:44:50.118Z"
+    },
+    {
+      "id": "aud_5c3f8872-8544-4215-9fa9-eeb60cdd495b",
+      "actorId": "usr_admin",
+      "action": "pay",
+      "entityType": "bill",
+      "entityId": "bil_1",
+      "details": {
+        "method": "cash"
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T06:44:48.470Z"
+    },
+    {
+      "id": "aud_2119d126-ba23-4000-92e3-2f6aa1257f2e",
+      "actorId": "usr_admin",
+      "action": "pay",
+      "entityType": "bill",
+      "entityId": "bil_a1959b88-e3ff-4a04-b0fd-3298648b2b42",
+      "details": {
+        "method": "cash"
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T06:44:43.909Z"
+    },
+    {
+      "id": "aud_31ab3f3c-393f-4a28-b59c-ad1152a48d30",
+      "actorId": "usr_admin",
+      "action": "pay",
+      "entityType": "bill",
+      "entityId": "bil_43be58c6-8ec1-43bb-b3f2-87afd1cc17f7",
+      "details": {
+        "method": "cash"
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T06:43:33.830Z"
+    },
+    {
+      "id": "aud_d9b4953e-2038-469a-97cb-77e36970f65a",
+      "actorId": "usr_admin",
+      "action": "create",
+      "entityType": "meter_reading",
+      "entityId": "red_da1ee5c0-8e61-41ea-92d6-77b5f7381861",
+      "details": {
+        "meterId": "mtr_1",
+        "readingValue": "98787984984",
+        "readingDate": "2026-06-18"
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T06:37:34.281Z"
+    },
+    {
+      "id": "aud_90ba2a7d-e78a-4177-aeff-709e1eac7eec",
+      "actorId": "usr_admin",
+      "action": "update",
+      "entityType": "field",
+      "entityId": "fld_1",
+      "details": {
+        "name": "قطعة الزيتون الشرقية",
+        "areaHectares": "4.5",
+        "cropType": "زياتين",
+        "meterNumber": "WM-2026-0101"
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T06:36:44.299Z"
+    },
+    {
+      "id": "aud_038e18aa-407e-4e9f-892b-52330c2534b7",
+      "actorId": "usr_admin",
+      "action": "update_status",
+      "entityType": "irrigation_request",
+      "entityId": "req_1",
+      "details": {
+        "status": "rejected",
+        "staffNote": "لم تتوفر حصة ماء في التاريخ المطلوب."
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T06:11:54.893Z"
+    },
+    {
+      "id": "aud_1f3cd804-29c2-4a8e-93ca-199fc32ea377",
+      "actorId": "usr_admin",
+      "action": "update_status",
+      "entityType": "irrigation_request",
+      "entityId": "req_1",
+      "details": {
+        "status": "approved",
+        "scheduledAt": "2026-06-18T09:11:00.000Z",
+        "staffNote": "تم إدراج الطلب في جدول الأدوار."
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-18T06:11:44.867Z"
+    },
+    {
+      "id": "aud_0be1a160-7660-4a07-961e-c0a41977b721",
+      "actorId": "usr_admin",
+      "action": "create",
+      "entityType": "meter_reading",
+      "entityId": "red_184eea94-6d72-4a2b-9e91-cb6e492ddf43",
+      "details": {
+        "meterId": "mtr_1",
+        "readingValue": 1450,
+        "readingDate": "2026-06-17"
+      },
+      "ipAddress": "::1",
+      "createdAt": "2026-06-17T22:01:50.694Z"
+    },
+    {
+      "id": "aud_1",
+      "actorId": "usr_staff",
+      "action": "seed",
+      "entityType": "system",
+      "entityId": null,
+      "details": {
+        "message": "Initial demo data created."
+      },
+      "ipAddress": null,
+      "createdAt": "2026-06-17T22:01:06.165Z"
+    }
+  ],
+  "activities": [
+    {
+      "id": "act_7944be5b-e46c-4156-9ad0-bef8f52526de",
+      "type": "request",
+      "title": "موافقة على طلب ري",
+      "description": "طلب فاطمة الزواري",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T22:23:04.678Z"
+    },
+    {
+      "id": "act_86135c82-49d8-4af3-b30b-3d858d960fa3",
+      "type": "request",
+      "title": "موافقة على طلب ري",
+      "description": "طلب محمد بن سالم",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T22:23:04.262Z"
+    },
+    {
+      "id": "act_11c450da-863a-4f31-8291-ee97d6a6c597",
+      "type": "request",
+      "title": "رفض طلب ري",
+      "description": "طلب فاطمة الزواري",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T22:23:02.188Z"
+    },
+    {
+      "id": "act_c5d436ca-550a-41e1-ba13-332bbac37a6f",
+      "type": "request",
+      "title": "رفض طلب ري",
+      "description": "طلب محمد بن سالم",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T22:23:01.074Z"
+    },
+    {
+      "id": "act_2ebb8d2e-fb80-4b5f-a223-6e5430ac4b51",
+      "type": "request",
+      "title": "موافقة على طلب ري",
+      "description": "طلب محمد بن سالم",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T22:22:59.686Z"
+    },
+    {
+      "id": "act_e979a032-f43e-4c8d-85a0-2baae04b6fba",
+      "type": "meter",
+      "title": "قراءة عداد جديدة",
+      "description": "تم تسجيل قراءة 56235362.",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T22:22:35.279Z"
+    },
+    {
+      "id": "act_061b54ae-eeb3-4edb-b086-7dc55ff9e7ff",
+      "type": "meter",
+      "title": "قراءة عداد جديدة",
+      "description": "تم تسجيل قراءة 56235362.",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T22:22:19.159Z"
+    },
+    {
+      "id": "act_a0f408c7-7b8c-44eb-8b0c-bd7e601a6e48",
+      "type": "meter",
+      "title": "قراءة عداد جديدة",
+      "description": "تم تسجيل قراءة WM-2026-0103.",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T22:22:00.551Z"
+    },
+    {
+      "id": "act_466196a6-dd6c-4484-90c1-775d8d092b87",
+      "type": "bill",
+      "title": "تسديد فاتورة",
+      "description": "BILL-2026-00003 بقيمة 258.00.",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T06:44:50.118Z"
+    },
+    {
+      "id": "act_7db3b418-863e-4bca-b059-996941e85de4",
+      "type": "bill",
+      "title": "تسديد فاتورة",
+      "description": "BILL-2026-00001 بقيمة 228.00.",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T06:44:48.470Z"
+    },
+    {
+      "id": "act_a8607d0a-7ef7-4395-8144-433bc9ce08ad",
+      "type": "bill",
+      "title": "تسديد فاتورة",
+      "description": "BILL-2026-00004 بقيمة 72.00.",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T06:44:43.908Z"
+    },
+    {
+      "id": "act_bd8f3525-e33e-46fd-a4f1-4862f45daea8",
+      "type": "bill",
+      "title": "تسديد فاتورة",
+      "description": "BILL-2026-00005 بقيمة 118545580240.80.",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T06:43:33.830Z"
+    },
+    {
+      "id": "act_d0491669-900b-4def-8fb0-482752faac7b",
+      "type": "meter",
+      "title": "قراءة عداد جديدة",
+      "description": "تم تسجيل قراءة WM-2026-0101.",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T06:37:34.281Z"
+    },
+    {
+      "id": "act_05d299ae-c3b3-45fe-aea5-b1f0a1172d7d",
+      "type": "request",
+      "title": "رفض طلب ري",
+      "description": "طلب محمد بن سالم",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T06:11:54.893Z"
+    },
+    {
+      "id": "act_e254e80f-6fc8-43ec-8cc6-19792da40da2",
+      "type": "request",
+      "title": "موافقة على طلب ري",
+      "description": "طلب محمد بن سالم",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-18T06:11:44.867Z"
+    },
+    {
+      "id": "act_dadca3e3-e491-4f75-ab7b-5d8ab9820882",
+      "type": "meter",
+      "title": "قراءة عداد جديدة",
+      "description": "تم تسجيل قراءة WM-2026-0101.",
+      "actorId": "usr_admin",
+      "createdAt": "2026-06-17T22:01:50.693Z"
+    },
+    {
+      "id": "act_1",
+      "type": "request",
+      "title": "طلب ري جديد",
+      "description": "محمد بن سالم قدم طلب ري.",
+      "actorId": "usr_farmer_1",
+      "createdAt": "2026-06-17T22:01:06.165Z"
+    },
+    {
+      "id": "act_2",
+      "type": "bill",
+      "title": "فاتورة مستخلصة",
+      "description": "تم تسديد فاتورة BILL-2026-00002.",
+      "actorId": "usr_staff",
+      "createdAt": "2026-06-17T22:01:06.165Z"
+    },
+    {
+      "id": "act_3",
+      "type": "meter",
+      "title": "تحديث قراءات",
+      "description": "تم تسجيل قراءات شهرية لثلاثة عدادات.",
+      "actorId": "usr_staff",
+      "createdAt": "2026-06-17T22:01:06.165Z"
+    }
+  ]
+}
