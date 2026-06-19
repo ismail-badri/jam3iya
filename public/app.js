@@ -140,12 +140,6 @@ function renderAuth() {
           <h2>متابعة دقيقة للتوزيع، الاستهلاك، الفوترة، ودورات الري.</h2>
           <p>واجهة إدارية وفلاحية موحدة تدعم العربية، الصلاحيات، السجلات الرقابية، وتنبيهات القرارات.</p>
         </div>
-        <div class="auth-demo">
-          <strong>حسابات تجريبية</strong>
-          <span>الإدارة: admin@irrigation.local / Admin@123</span>
-          <span>فلاح: farmer1@irrigation.local / Farmer@123</span>
-          <span>عون: staff@irrigation.local / Staff@123</span>
-        </div>
       </section>
     </main>
   `;
@@ -156,11 +150,11 @@ function loginForm() {
     <form data-form="login" class="grid">
       <div class="form-row">
         <label>البريد الإلكتروني</label>
-        <input name="email" type="email" autocomplete="username" required value="admin@irrigation.local">
+        <input name="email" type="email" autocomplete="username" >
       </div>
       <div class="form-row">
         <label>كلمة المرور</label>
-        <input name="password" type="password" autocomplete="current-password" required value="Admin@123">
+        <input name="password" type="password" autocomplete="current-password">
       </div>
       <button class="btn" type="submit">دخول</button>
     </form>
