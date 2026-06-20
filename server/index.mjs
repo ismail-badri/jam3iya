@@ -1065,349 +1065,35 @@ function createSeedData() {
     ],
     users: [
       {
-        id: adminUserId,
-        email: 'admin@irrigation.local',
-        passwordHash: hashPassword('Admin@123'),
-        displayName: 'مدير جمعية الري',
-        phone: '+216 70 000 001',
-        role: 'admin',
-        staffRoleId: adminRoleId,
-        active: true,
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      },
-      {
-        id: staffUserId,
-        email: 'staff@irrigation.local',
-        passwordHash: hashPassword('Staff@123'),
-        displayName: 'عون مصلحة الري',
-        phone: '+216 70 000 002',
-        role: 'staff',
-        staffRoleId: operationsRoleId,
-        active: true,
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      },
-      {
-        id: farmerUserId,
-        email: 'farmer1@irrigation.local',
-        passwordHash: hashPassword('Farmer@123'),
-        displayName: 'محمد بن سالم',
-        phone: '+216 20 111 222',
-        role: 'farmer',
-        staffRoleId: null,
-        active: true,
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      },
-      {
-        id: farmerTwoUserId,
-        email: 'farmer2@irrigation.local',
-        passwordHash: hashPassword('Farmer@123'),
-        displayName: 'فاطمة الزواري',
-        phone: '+216 20 333 444',
-        role: 'farmer',
-        staffRoleId: null,
-        active: true,
-        createdAt: nowIso(),
-        updatedAt: nowIso()
+    id: adminUserId,
+    email: 'admin@irrigation.local',
+    passwordHash: hashPassword('Admin@123'),
+    displayName: 'Admin',
+    phone: '',
+    role: 'admin',
+    staffRoleId: adminRoleId,
+    active: true,
+    createdAt: nowIso(),
+    updatedAt: nowIso()
       }
     ],
     farmers: [
-      {
-        id: farmerId,
-        userId: farmerUserId,
-        nationalId: 'TN-11223344',
-        associationNumber: 'AGR-00001',
-        region: 'سيدي بوزيد',
-        address: 'طريق الرقاب كلم 8',
-        status: 'active',
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      },
-      {
-        id: farmerTwoId,
-        userId: farmerTwoUserId,
-        nationalId: 'TN-55667788',
-        associationNumber: 'AGR-00002',
-        region: 'القيروان',
-        address: 'الشراردة',
-        status: 'active',
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      }
     ],
     fields: [
-      {
-        id: fieldId,
-        farmerId,
-        name: 'قطعة الزيتون الشرقية',
-        areaHectares: 4.5,
-        cropType: 'زياتين',
-        location: 'حوض 3',
-        soilType: 'طيني',
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      },
-      {
-        id: fieldTwoId,
-        farmerId,
-        name: 'قطعة الخضروات',
-        areaHectares: 1.8,
-        cropType: 'خضروات',
-        location: 'حوض 4',
-        soilType: 'رملي',
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      },
-      {
-        id: fieldThreeId,
-        farmerId: farmerTwoId,
-        name: 'قطعة الحبوب',
-        areaHectares: 6.2,
-        cropType: 'حبوب',
-        location: 'حوض 7',
-        soilType: 'متوسط',
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      }
     ],
     waterMeters: [
-      {
-        id: meterId,
-        fieldId,
-        meterNumber: 'WM-2026-0101',
-        installationDate: '2024-02-14',
-        status: 'active',
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      },
-      {
-        id: meterTwoId,
-        fieldId: fieldTwoId,
-        meterNumber: 'WM-2026-0102',
-        installationDate: '2024-02-14',
-        status: 'active',
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      },
-      {
-        id: meterThreeId,
-        fieldId: fieldThreeId,
-        meterNumber: 'WM-2026-0103',
-        installationDate: '2024-03-01',
-        status: 'active',
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      }
     ],
     meterReadings: [
-      {
-        id: 'red_1',
-        meterId,
-        readingValue: 1200,
-        consumption: 0,
-        readingDate: dateOnly(lastMonth),
-        recordedBy: staffUserId,
-        createdAt: lastMonth.toISOString()
-      },
-      {
-        id: 'red_2',
-        meterId,
-        readingValue: 1390,
-        consumption: 190,
-        readingDate: dateOnly(thisMonth),
-        recordedBy: staffUserId,
-        createdAt: thisMonth.toISOString()
-      },
-      {
-        id: 'red_3',
-        meterId: meterTwoId,
-        readingValue: 340,
-        consumption: 0,
-        readingDate: dateOnly(lastMonth),
-        recordedBy: staffUserId,
-        createdAt: lastMonth.toISOString()
-      },
-      {
-        id: 'red_4',
-        meterId: meterTwoId,
-        readingValue: 412,
-        consumption: 72,
-        readingDate: dateOnly(thisMonth),
-        recordedBy: staffUserId,
-        createdAt: thisMonth.toISOString()
-      },
-      {
-        id: 'red_5',
-        meterId: meterThreeId,
-        readingValue: 800,
-        consumption: 0,
-        readingDate: dateOnly(lastMonth),
-        recordedBy: staffUserId,
-        createdAt: lastMonth.toISOString()
-      },
-      {
-        id: 'red_6',
-        meterId: meterThreeId,
-        readingValue: 1015,
-        consumption: 215,
-        readingDate: dateOnly(thisMonth),
-        recordedBy: staffUserId,
-        createdAt: thisMonth.toISOString()
-      }
     ],
     irrigationRequests: [
-      {
-        id: 'req_1',
-        farmerId,
-        fieldId,
-        requestedDate: addDays(today, 2),
-        requestedHours: 5,
-        waterAmount: 120,
-        reason: 'دورة ري للزياتين',
-        status: 'pending',
-        scheduledAt: null,
-        staffNote: '',
-        decidedBy: null,
-        decidedAt: null,
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      },
-      {
-        id: 'req_2',
-        farmerId: farmerTwoId,
-        fieldId: fieldThreeId,
-        requestedDate: addDays(today, 1),
-        requestedHours: 4,
-        waterAmount: 90,
-        reason: 'تعويض نقص الأمطار',
-        status: 'approved',
-        scheduledAt: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1, 6, 0, 0).toISOString(),
-        staffNote: 'الدور الصباحي',
-        decidedBy: staffUserId,
-        decidedAt: nowIso(),
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      }
     ],
     bills: [
-      {
-        id: 'bil_1',
-        farmerId,
-        meterId,
-        readingId: 'red_2',
-        billNumber: 'BILL-2026-00001',
-        periodStart: dateOnly(lastMonth),
-        periodEnd: dateOnly(thisMonth),
-        consumption: 190,
-        rate: WATER_TARIFF,
-        amount: Number((190 * WATER_TARIFF).toFixed(2)),
-        status: 'unpaid',
-        dueDate: addDays(today, 20),
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      },
-      {
-        id: 'bil_2',
-        farmerId,
-        meterId: meterTwoId,
-        readingId: 'red_4',
-        billNumber: 'BILL-2026-00002',
-        periodStart: dateOnly(lastMonth),
-        periodEnd: dateOnly(thisMonth),
-        consumption: 72,
-        rate: WATER_TARIFF,
-        amount: Number((72 * WATER_TARIFF).toFixed(2)),
-        status: 'paid',
-        dueDate: addDays(today, 18),
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      },
-      {
-        id: 'bil_3',
-        farmerId: farmerTwoId,
-        meterId: meterThreeId,
-        readingId: 'red_6',
-        billNumber: 'BILL-2026-00003',
-        periodStart: dateOnly(lastMonth),
-        periodEnd: dateOnly(thisMonth),
-        consumption: 215,
-        rate: WATER_TARIFF,
-        amount: Number((215 * WATER_TARIFF).toFixed(2)),
-        status: 'unpaid',
-        dueDate: addDays(today, 24),
-        createdAt: nowIso(),
-        updatedAt: nowIso()
-      }
     ],
     payments: [
-      {
-        id: 'pay_1',
-        billId: 'bil_2',
-        farmerId,
-        amount: Number((72 * WATER_TARIFF).toFixed(2)),
-        method: 'cash',
-        reference: 'PAY-2026-0001',
-        paidAt: nowIso(),
-        recordedBy: staffUserId
-      }
-    ],
-    notifications: [
-      {
-        id: 'not_1',
-        userId: farmerUserId,
-        title: 'طلب ري قيد المعالجة',
-        message: 'تم استلام طلب الري وسيتم إعلامك بالقرار.',
-        status: 'unread',
-        createdAt: nowIso()
-      },
-      {
-        id: 'not_2',
-        userId: farmerTwoUserId,
-        title: 'تمت الموافقة على طلب الري',
-        message: 'تم تحديد دور الري في الفترة الصباحية.',
-        status: 'unread',
-        createdAt: nowIso()
-      }
     ],
     auditLogs: [
-      {
-        id: 'aud_1',
-        actorId: staffUserId,
-        action: 'seed',
-        entityType: 'system',
-        entityId: null,
-        details: { message: 'Initial demo data created.' },
-        ipAddress: null,
-        createdAt: nowIso()
-      }
     ],
     activities: [
-      {
-        id: 'act_1',
-        type: 'request',
-        title: 'طلب ري جديد',
-        description: 'محمد بن سالم قدم طلب ري.',
-        actorId: farmerUserId,
-        createdAt: nowIso()
-      },
-      {
-        id: 'act_2',
-        type: 'bill',
-        title: 'فاتورة مستخلصة',
-        description: 'تم تسديد فاتورة BILL-2026-00002.',
-        actorId: staffUserId,
-        createdAt: nowIso()
-      },
-      {
-        id: 'act_3',
-        type: 'meter',
-        title: 'تحديث قراءات',
-        description: 'تم تسجيل قراءات شهرية لثلاثة عدادات.',
-        actorId: staffUserId,
-        createdAt: nowIso()
-      }
     ]
   };
 }
