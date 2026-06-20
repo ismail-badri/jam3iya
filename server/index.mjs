@@ -11,7 +11,7 @@ const publicDir = join(rootDir, 'public');
 const dataPath = join(rootDir, 'work', 'dev-db.json');
 const PORT = Number(process.env.PORT || 3000);
 const JWT_SECRET = process.env.JWT_SECRET || 'local-development-secret-change-me';
-const WATER_TARIFF = Number(process.env.WATER_TARIFF || 1.2);
+const WATER_TARIFF = Number(process.env.WATER_TARIFF || 0.2);
 const TOKEN_TTL_SECONDS = 60 * 60 * 8;
 
 const mimeTypes = {
