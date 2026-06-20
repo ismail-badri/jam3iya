@@ -1077,23 +1077,15 @@ function createSeedData() {
     updatedAt: nowIso()
       }
     ],
-    farmers: [
-    ],
-    fields: [
-    ],
-    waterMeters: [
-    ],
-    meterReadings: [
-    ],
-    irrigationRequests: [
-    ],
-    bills: [
-    ],
-    payments: [
-    ],
-    auditLogs: [
-    ],
-    activities: [
-    ]
+    farmers: [],
+  fields: [],
+  waterMeters: [],
+  meterReadings: [],
+  irrigationRequests: [],
+  bills: [],
+  payments: [],
+  notifications: [],
+  activities: [],
+  auditLogs: []
   };
 }
